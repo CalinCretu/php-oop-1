@@ -18,20 +18,19 @@ class Production      // Definisco la classe e le sue variabili
     return $this->title;
   }
 
-  public function setTitle($title)
-  {
-    $this->title = $title;
-  }
-
   public function getLanguage()
   {
     return $this->language;
   }
 
-
   public function getRating()
   {
     return $this->rating;
+  }
+
+  public function setTitle($title)
+  {
+    $this->title = $title;
   }
 }
 
@@ -66,7 +65,9 @@ $movies = [
     <h2>Oggi al cinema</h2>
     <ul>
       <?php foreach ($movies as $movie) { ?>
-        <li><?php echo 'Titolo:' . ' ' . $movie->title; ?>
+        <li class="title"><?php echo 'Titolo:' . ' ' . $movie->title; ?>
+        <li class="language"><?php echo 'Lingua:' . ' ' . $movie->language; ?>
+        <li class="rating"><?php echo 'Voto:' . ' ' . $movie->rating; ?>
         <?php } ?>
     </ul>
   </div>
