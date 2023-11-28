@@ -8,9 +8,9 @@ class Production      // Definisco la classe e le sue variabili
 
   public function __construct($title, $language, $rating)     // Definisco il construct e le sue proprieta'
   {
-    $this->title = $title;      // Proprieta' del construct
-    $this->language = $language;
-    $this->rating = $rating;
+    $this->setTitle($title);      // Proprieta' del construct
+    $this->setLanguage($language);
+    $this->setRating($rating);
   }
 
   public function getTitle()
@@ -31,6 +31,16 @@ class Production      // Definisco la classe e le sue variabili
   public function setTitle($title)
   {
     $this->title = $title;
+  }
+
+  public function setLanguage($language)
+  {
+    $this->language = $language;
+  }
+
+  public function setRating($rating)
+  {
+    $this->rating = $rating;
   }
 }
 
