@@ -18,6 +18,10 @@ main {
 }
 
 .container {
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 30px;
   padding: 20px;
   background-color: rgb(255, 240, 240, 0.8);
@@ -26,6 +30,16 @@ main {
 
 h2 {
   margin: 20px 0;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+}
+
+ul:first-child {
+  text-align: start;
 }
 
 .rating {

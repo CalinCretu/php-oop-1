@@ -1,10 +1,12 @@
 <?php
 
+require_once __DIR__ . "/Models/Movie.php";
+require_once __DIR__ . "/Models/Serie.php";
 class Production      // Definisco la classe e le sue variabili
 {
-  public $title;     // Variabili
-  public $language;
-  public $rating = 0;
+  protected $title;     // Variabili
+  protected $language;
+  protected $rating = 0;
 
   public function __construct(string $_title, string $_language, int $_rating)     // Definisco il construct e le sue proprieta'
   {
@@ -40,20 +42,35 @@ class Production      // Definisco la classe e le sue variabili
 
   public function setRating($rating)
   {
-    if (is_numeric($rating) ?? $rating > 0 ?? $rating <= 5) {
+    if (is_numeric($rating) ?? $rating >= 0 ?? $rating <= 5) {
       $this->rating = $rating;
     }
   }
 }
 
-$prod1 = new Production("Dragon Trainer", "Italiano", 5);
-$prod2 = new Production("Dragon Trainer 2", "Italiano", 5);
-$prod3 = new Production("Dragon Trainer 3", "Italiano", 5);
+$prod1 = new Movie("Dragon Trainer", "Italiano", 5);
+$prod2 = new Movie("Dragon Trainer 2", "Italiano", 3);
+$prod3 = new Movie("Dragon Trainer 3", "Italiano", 4);
+$prod4 = new Movie("Pirati dei Caraibi", "English", 5);
+$prod5 = new Movie("Avatar", "English", 3);
+$prod6 = new Serie("Lost", "Italiano", 5);
+$prod7 = new Serie("Gli Anelli dei Potere", "English", 5);
+$prod8 = new Serie("The Boys", "English", 5);
+$prod9 = new Serie("The Office", "Italiano", 5);
+$prod10 = new Serie("Breaking Bad", "English", 5);
+
 
 $prods = [
   $prod1,
   $prod2,
-  $prod3
+  $prod3,
+  $prod4,
+  $prod5,
+  $prod6,
+  $prod7,
+  $prod8,
+  $prod9,
+  $prod10
 ];
 
 ?>
@@ -75,12 +92,10 @@ $prods = [
 <main>
   <div class="container">
     <h2>Oggi al cinema</h2>
-    <ul>
-      <?php foreach ($prods as $movie) { ?>
-        <li class="title"><?php echo 'Titolo:' . ' ' . $movie->title; ?>
-        <li class="language"><?php echo 'Lingua:' . ' ' . $movie->language; ?>
-        <li class="rating"><?php echo 'Voto:' . ' ' . $movie->rating; ?>
-        <?php } ?>
+    <ul <?php foreach ($prods as $movie) { ?> <li class="title"><?php echo 'Titolo:' . ' ' . $movie->getTitle(); ?>
+      <li class="language"><?php echo 'Lingua:' . ' ' . $movie->getLanguage(); ?>
+      <li class="rating"><?php echo 'Voto:' . ' ' . $movie->getRating(); ?>
+      <?php } ?>
     </ul>
   </div>
 </main>
