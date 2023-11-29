@@ -38,10 +38,6 @@ ul {
   text-align: center;
 }
 
-ul:first-child {
-  text-align: start;
-}
-
 .rating {
   margin-bottom: 20px;
 }

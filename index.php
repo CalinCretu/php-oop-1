@@ -92,10 +92,10 @@ $prods = [
 <main>
   <div class="container">
     <h2>Oggi al cinema</h2>
-    <ul <?php foreach ($prods as $movie) { ?> <li class="title"><?php echo 'Titolo:' . ' ' . $movie->getTitle(); ?>
-      <li class="language"><?php echo 'Lingua:' . ' ' . $movie->getLanguage(); ?>
-      <li class="rating"><?php echo 'Voto:' . ' ' . $movie->getRating(); ?>
-      <?php } ?>
+    <ul <?php foreach ($prods as $movie) { ?> <li class="title"><?php echo 'Titolo:' . ' ' . $movie->getTitle(); ?></li>
+      <li class="language"><?php echo 'Lingua:' . ' ' . $movie->getLanguage(); ?></li>
+      <li class="rating"><?php echo 'Voto:' . ' ' . $movie->getRating(); ?></li>
+    <?php } ?>
     </ul>
   </div>
 </main>
