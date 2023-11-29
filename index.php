@@ -4,13 +4,13 @@ class Production      // Definisco la classe e le sue variabili
 {
   public $title;     // Variabili
   public $language;
-  public $rating;
+  public $rating = 0;
 
-  public function __construct($title, $language, $rating)     // Definisco il construct e le sue proprieta'
+  public function __construct(string $_title, string $_language, int $_rating)     // Definisco il construct e le sue proprieta'
   {
-    $this->setTitle($title);      // Proprieta' del construct
-    $this->setLanguage($language);
-    $this->setRating($rating);
+    $this->setTitle($_title);      // Proprieta' del construct
+    $this->setLanguage($_language);
+    $this->setRating($_rating);
   }
 
   public function getTitle()
@@ -40,18 +40,20 @@ class Production      // Definisco la classe e le sue variabili
 
   public function setRating($rating)
   {
-    $this->rating = $rating;
+    if (is_numeric($rating) ?? $rating > 0 ?? $rating <= 5) {
+      $this->rating = $rating;
+    }
   }
 }
 
-$movie1 = new Production("Dragon Trainer", "Italiano", 5);
-$movie2 = new Production("Dragon Trainer 2", "Italiano", 5);
-$movie3 = new Production("Dragon Trainer 3", "Italiano", 5);
+$prod1 = new Production("Dragon Trainer", "Italiano", 5);
+$prod2 = new Production("Dragon Trainer 2", "Italiano", 5);
+$prod3 = new Production("Dragon Trainer 3", "Italiano", 5);
 
-$movies = [
-  $movie1,
-  $movie2,
-  $movie3
+$prods = [
+  $prod1,
+  $prod2,
+  $prod3
 ];
 
 ?>
@@ -74,7 +76,7 @@ $movies = [
   <div class="container">
     <h2>Oggi al cinema</h2>
     <ul>
-      <?php foreach ($movies as $movie) { ?>
+      <?php foreach ($prods as $movie) { ?>
         <li class="title"><?php echo 'Titolo:' . ' ' . $movie->title; ?>
         <li class="language"><?php echo 'Lingua:' . ' ' . $movie->language; ?>
         <li class="rating"><?php echo 'Voto:' . ' ' . $movie->rating; ?>
